@@ -1,0 +1,19 @@
+# Ignore IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore temporary files
+*.tmp
+*.bak
+*.log
+
+# Ignore local testing manifests
+local/
+test-*.yaml
