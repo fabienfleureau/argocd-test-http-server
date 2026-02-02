@@ -31,27 +31,42 @@ This repository contains Kubernetes manifests for deploying the `fabienfleureau/
 
 ### Deploy with ArgoCD
 
-1. **Create ArgoCD Application (using kubectl):**
+**Recommended: Use the deployment script**
 
 ```bash
-kubectl apply -f argocd/application.yaml
+./deploy-argocd.sh
 ```
 
-2. **Or use ArgoCD CLI:**
+This script will:
+1. Create the ArgoCD AppProject
+2. Deploy the selected environment(s)
+3. Provide next steps and verification commands
+
+**Manual deployment:**
+
+1. **Create the AppProject first:**
 
 ```bash
-argocd app create http-hello-world \
-  --repo https://github.com/YOUR_USERNAME/http-hello-world-argocd.git \
-  --path overlays/dev \
-  --dest-server https://kubernetes.default.svc \
-  --dest-namespace default \
-  --sync-policy automated
+kubectl apply -f argocd/appproject.yaml
 ```
 
-3. **Sync the application:**
+2. **Then create the Application:**
 
 ```bash
-argocd app sync http-hello-world
+# Development
+kubectl apply -f argocd/application-dev.yaml
+
+# Staging
+kubectl apply -f argocd/application-staging.yaml
+
+# Production
+kubectl apply -f argocd/application-prod.yaml
+```
+
+3. **Sync the application (if not auto-sync):**
+
+```bash
+argocd app sync http-hello-world-prod
 ```
 
 ### Manual Deployment (without ArgoCD)
