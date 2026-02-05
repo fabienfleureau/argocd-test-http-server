@@ -7,7 +7,7 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  ingressClassName: nginx
+  ingressClassName: nginx-qovery
   rules:
   - host: hello-world.example.com
     http:
