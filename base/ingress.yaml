@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx-qovery
   rules:
-  - host: hello-world.example.com
+  - host: hello-world.z85acdd55.bool.sh
     http:
       paths:
       - path: /
