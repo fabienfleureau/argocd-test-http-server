@@ -25,26 +25,7 @@ fi
 echo -e "${GREEN}✓ kubectl found${NC}"
 echo ""
 
-# Check if argocd namespace exists
-if ! kubectl get namespace argocd &> /dev/null; then
-    echo -e "${RED}✗ ArgoCD namespace not found.${NC}"
-    echo -e "${YELLOW}Please install ArgoCD first:${NC}"
-    echo "  kubectl create namespace argocd"
-    echo "  kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml"
-    exit 1
-fi
 
-echo -e "${GREEN}✓ ArgoCD namespace found${NC}"
-echo ""
-
-# Step 1: Create AppProject
-echo -e "${BLUE}📦 Step 1: Creating ArgoCD AppProject...${NC}"
-if kubectl apply -f argocd/appproject.yaml; then
-    echo -e "${GREEN}✓ AppProject 'http-hello-world' created${NC}"
-else
-    echo -e "${RED}✗ Failed to create AppProject${NC}"
-    exit 1
-fi
 
 echo ""
 

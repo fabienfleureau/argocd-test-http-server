@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: http-hello-world
-  namespace: argocd
+  namespace: z9874dc1d-argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:

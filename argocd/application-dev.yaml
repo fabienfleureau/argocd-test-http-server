@@ -2,9 +2,12 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: http-hello-world-dev
-  namespace: argocd
+  namespace: z9874dc1d-argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argo.octopus.com/project: "test"
+    argo.octopus.com/environment: "test"
 spec:
   project: http-hello-world
 
